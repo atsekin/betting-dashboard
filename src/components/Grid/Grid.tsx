@@ -1,6 +1,6 @@
 import { Grid as MuiGrid, Card as MuiCard, CardContent } from '@mui/material';
 import type { GridProps as MuiGridProps } from '@mui/material';
-import { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 type GridProps<T> = {
   data?: T[];
