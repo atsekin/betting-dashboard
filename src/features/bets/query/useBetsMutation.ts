@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { postBet } from '../api';
-import type { Bet } from '../../../types/bets';
+import type { Bet } from '../types';
 
 export const useCreateBetsMutation = () => {
   const queryClient = useQueryClient();

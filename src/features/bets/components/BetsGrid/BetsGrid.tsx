@@ -1,6 +1,6 @@
 import { CircularProgress } from '@mui/material';
 
-import type { Bet } from '../../../../types/bets';
+import type { Bet } from '../../types';
 
 import { Grid } from '../../../../components/Grid';
 import { BetsCardContent } from './BetsCardContent';

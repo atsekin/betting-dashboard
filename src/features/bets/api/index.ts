@@ -1,4 +1,4 @@
-import type { Bet } from '../../../types/bets';
+import type { Bet } from '../types';
 
 import { bets } from '../mocks/mocks';
 

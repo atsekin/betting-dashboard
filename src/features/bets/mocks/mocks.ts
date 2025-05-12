@@ -1,4 +1,4 @@
-import type { Bet } from '../../../types/bets';
+import type { Bet } from '../types';
 
 export const bets: Bet[] = [
   { id: '1746888741353', title: 'Team A vs Team B', bets: '10 vs 5', odds: '1.5 vs 2.5' },

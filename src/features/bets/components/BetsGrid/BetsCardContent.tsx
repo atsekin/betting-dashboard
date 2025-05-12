@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import type { Bet } from '../../../../types/bets';
+import type { Bet } from '../../types';
 
 type BetsCardContentProps = {
   data: Bet;
