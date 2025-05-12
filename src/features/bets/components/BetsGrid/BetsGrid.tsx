@@ -1,10 +1,19 @@
+import { CircularProgress } from '@mui/material';
+
 import type { Bet } from '../../../../types/bets';
-import { bets } from '../../mocks/mocks';
+
 import { Grid } from '../../../../components/Grid';
 import { BetsCardContent } from './BetsCardContent';
+import { useBetsQuery } from '../../query';
 
 
 export const BetsGrid = () => {
+  const { isPending, data: bets } = useBetsQuery();
+
+  if (isPending) {
+    return <CircularProgress />;
+  }
+
   return (
     <Grid
       data={bets}
