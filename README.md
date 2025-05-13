@@ -1,54 +1,24 @@
-# React + TypeScript + Vite
+# Betting dashboard app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
+Please install pnpm if not installed yet:
 
-Currently, two official plugins are available:
+https://pnpm.io/installation#using-other-package-managers
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+After cloning the repo:
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+pnpm install
+pnpm run dev
 ```
+Application is available on http://localhost:5173/ by default
+
+## Disclaimer (motivation of some decisions)
+I decided to use React Query for both handling requests and state management and not use zustand/redux or similar dedicated library.
+When choosing React Query, I based my choice on the following points:
+
+1) Use tools as they will be used in a real solution. I could store data in zustand and access it inside query to get/change it, but its not how it done in real application
+2) Regarding scalalbility and perspective, we will definitely need to have convenient logic for processing backend calls
+3) At the same time, it is unknown at the moment whether the bets data will be reused in the future, which means it is not a fact that this data needs to be shared through the store
+4) Although zustand is lightweight, it still loads the bundle, and adding it in advance is also not good
+
+Also, for extensibility and flexibility, it would be possible to add a separate layout component, but since I don’t have other pages to define repeating elements (header, etc.) and the approximate structure of each page that could be taken out into a separate component, I skipped this step.
